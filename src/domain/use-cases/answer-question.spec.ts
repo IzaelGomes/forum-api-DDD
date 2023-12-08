@@ -1,15 +1,22 @@
-import {expect, test} from "vitest"
-import { Answer } from "../entities/answer"
-import { AnswerQuestionUseCase } from "./answer-question-use-case"
+import { expect, test } from "vitest";
+import { AnswerQuestionUseCase } from "./answer-question-use-case";
+import { AnswersRepository } from "../repositories/answer-repository";
+import { Answer } from "../entities/answer";
 
-test('create an answer', () => {
-    const answerQuestion = new AnswerQuestionUseCase()
+const fakeAnswerRepository: AnswersRepository = {
+  create: async (answer: Answer) => {
+    return
+  },
+};
 
-   const answer =  answerQuestion.execute({
-        content:'teste',
-        instructorId:'1', 
-        question:'1'
-    })
+test("create an answer", async () => {
+  const answerQuestion = new AnswerQuestionUseCase(fakeAnswerRepository);
 
-    expect(answer.content).toBe('teste')
-})
+  const answer = await answerQuestion.execute({
+    content: "teste",
+    instructorId: "1",
+    questionId: "1",
+  });
+
+  expect(answer.content).toBe("teste");
+});
