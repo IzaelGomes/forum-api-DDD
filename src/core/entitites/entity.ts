@@ -10,8 +10,8 @@ export class Entity<TProps> {
     return this._id;
   }
 
-  constructor(props: TProps, id?: string) {
+  constructor(props: TProps, id?: UniqueEntityId) {
     this.props = props;
-    this._id = new UniqueEntityId(id);
+    this._id = id ?? new UniqueEntityId();
   }
 }

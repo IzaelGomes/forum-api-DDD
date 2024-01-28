@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "vitest run", 
+    "test": "vitest run",
     "test:watch": "vitest"
   },
   "keywords": [],
@@ -16,6 +16,7 @@
     "vitest": "^0.34.6"
   },
   "dependencies": {
-    "crypto": "^1.0.1"
+    "crypto": "^1.0.1",
+    "dayjs": "^1.11.10"
   }
 }
