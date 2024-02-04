@@ -6,4 +6,8 @@ export class InMemoryAnswerRepository implements AnswersRepository {
   async create(answer: Answer): Promise<void> {
     this.items.push(answer)
   }
+
+  clean() {
+    this.items = []
+  }
 }

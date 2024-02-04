@@ -10,6 +10,10 @@ describe('Create Question', () => {
     sut = new CreateQuestionUseCase(inMemoryQuestionRepository)
   })
 
+  afterEach(() => {
+    inMemoryQuestionRepository.clean()
+  })
+
   test('it should be able to create a question', async () => {
     const { question } = await sut.execute({
       content: 'teste',

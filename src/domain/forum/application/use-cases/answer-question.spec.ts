@@ -8,6 +8,11 @@ describe('Create Answer', () => {
     inMemoryAnswerRepository = new InMemoryAnswerRepository()
     sut = new AnswerQuestionUseCase(inMemoryAnswerRepository)
   })
+
+  afterEach(() => {
+    inMemoryAnswerRepository.clean()
+  })
+
   test('should be able to create an answer', async () => {
     const { answer } = await sut.execute({
       content: 'teste',
